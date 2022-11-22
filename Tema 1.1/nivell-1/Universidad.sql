@@ -25,11 +25,28 @@
         JOIN curso_escolar ce ON ce.id = am.id_curso_escolar
         WHERE ce.id = 5;
 -- LEFT JOIN / RIGHT JOIN
-/*1*/
-/*2*/
-/*3*/
-/*4*/
-/*5*/
+/*1SELECT d.nombre, per.apellido1, per.apellido2, per.nombre FROM persona per
+		LEFT JOIN profesor pro ON per.id = pro.id_profesor
+        RIGHT JOIN departamento d ON pro.id_departamento = d.id
+        WHERE per.tipo = 'profesor'
+        ORDER BY d.nombre, per.apellido1, per.apellido2, per.nombre;
+        */
+/*2SELECT per.apellido1, per.apellido2, per.nombre FROM persona per
+		LEFT JOIN profesor pro ON per.id = pro.id_profesor
+        LEFT JOIN departamento d ON pro.id_departamento = d.id
+        WHERE d.nombre IS NULL AND per.tipo != 'alumno';
+        */
+/*3*/SELECT d.nombre FROM departamento d
+		LEFT JOIN profesor pro ON pro.id_departamento = d.id
+		LEFT JOIN persona per ON per.id = pro.id_profesor
+        WHERE per.nombre IS NULL;
+/*4*/SELECT per.apellido1, per.apellido2, per.nombre FROM persona per
+		LEFT JOIN profesor pro ON per.id = pro.id_profesor
+        LEFT JOIN asignatura a USING (id_profesor)
+        WHERE a.id_profesor IS NULL AND per.tipo = 'profesor';
+/*5*/SELECT a.nombre FROM asignatura a
+		
+        
 /*6*/
 -- CONSULTES RESUM
 /*1*/
