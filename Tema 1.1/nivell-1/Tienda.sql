@@ -21,16 +21,30 @@
 /*18*/SELECT nombre, precio FROM producto ORDER BY precio LIMIT 1;
 /*19*/SELECT nombre, precio FROM producto ORDER BY precio DESC LIMIT 1;
 /*20*/SELECT p.nombre FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.codigo = 2;
-/*21*/
-/*22*/
-/*23*/
-/*24*/
-/*25*/
-/*26*/
-/*27*/
-/*28*/
-/*29*/
-/*30*/
+/*21*/SELECT p.nombre AS producto, p.precio, f.nombre AS fabricante FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo;
+/*22*/SELECT p.nombre AS producto, p.precio, f.nombre AS fabricante 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo ORDER BY f.nombre;
+/*23*/SELECT p.codigo, p.nombre AS producto, f.codigo, f.nombre AS fabricante 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo;
+/*24*/SELECT p.nombre AS producto, p.precio, f.nombre AS fabricante 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo ORDER BY p.precio LIMIT 1;
+/*25*/SELECT p.nombre AS producto, p.precio, f.nombre AS fabricante 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo ORDER BY p.precio DESC LIMIT 1;
+/*26*/SELECT p.nombre AS producto 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.nombre = 'LENOVO';
+/*27*/SELECT p.nombre AS producto FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+		WHERE f.nombre = 'CRUCIAL' AND p.precio > 200;
+/*28*/SELECT p.nombre AS producto 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE f.nombre = 'Asus'
+        OR f.nombre = 'Hewlett-Packard'
+        OR f.nombre = 'Seagate';
+/*29*/SELECT p.nombre AS producto 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE f.nombre IN ('Asus','Hewlett-Packard','Seagate');
+/*30*/SELECT p.nombre AS producto, p.precio 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE f.nombre LIKE '%e';
 /*31*/
 /*32*/
 /*33*/
