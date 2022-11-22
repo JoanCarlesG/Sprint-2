@@ -45,15 +45,40 @@
 /*30*/SELECT p.nombre AS producto, p.precio 
 		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
         WHERE f.nombre LIKE '%e';
-/*31*/
-/*32*/
-/*33*/
-/*34*/
-/*35*/
-/*36*/
-/*37*/
-/*38*/
-/*39*/
-/*40*/
-/*41*/
+/*31*/SELECT p.nombre AS producto, p.precio 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE f.nombre LIKE '%w%';
+/*32*/SELECT p.nombre AS producto, p.precio, f.nombre AS fabricante 
+		FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE p.precio >= 180 ORDER BY p.precio DESC, p.nombre;
+/*33*/SELECT DISTINCT f.codigo, f.nombre FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo;
+/*34*/SELECT f.codigo, f.nombre AS fabricante, p.nombre AS producto 
+		FROM producto p RIGHT JOIN fabricante f ON p.codigo_fabricante = f.codigo;
+/*35*/SELECT f.nombre AS fabricante
+		FROM producto p RIGHT JOIN fabricante f ON p.codigo_fabricante = f.codigo
+        WHERE p.nombre IS NULL;
+/*36*/SELECT p.nombre
+		FROM producto p RIGHT JOIN fabricante f ON p.codigo_fabricante = f.codigo
+        WHERE f.nombre = 'LENOVO';
+/*37*/SELECT *
+		FROM producto p RIGHT JOIN fabricante f ON p.codigo_fabricante = f.codigo
+        WHERE f.nombre = 'LENOVO'
+        ORDER BY p.precio DESC LIMIT 1;
+/*38*/SELECT p.nombre FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo
+		WHERE f.nombre = 'LENOVO'
+        ORDER BY p.precio DESC LIMIT 1;
+/*39*/SELECT p.nombre FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo
+		WHERE f.nombre = 'Hewlett-Packard'
+        ORDER BY p.precio LIMIT 1;
+/*40*/SELECT p.nombre  FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo
+		WHERE p.precio >= 
+        (SELECT p.precio FROM producto p 
+        JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE f.nombre = 'Lenovo'
+        ORDER BY p.precio DESC LIMIT 1);
+/*41*/SELECT p.nombre FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo
+		WHERE f.nombre = 'Asus' AND p.precio >= 
+        (SELECT AVG(p.precio) FROM producto p 
+        JOIN fabricante f ON p.codigo_fabricante = f.codigo 
+        WHERE f.nombre = 'Asus');
 
