@@ -25,17 +25,18 @@
         JOIN curso_escolar ce ON ce.id = am.id_curso_escolar
         WHERE ce.id = 5;
 -- LEFT JOIN / RIGHT JOIN
-/*1SELECT d.nombre, per.apellido1, per.apellido2, per.nombre FROM persona per
-		LEFT JOIN profesor pro ON per.id = pro.id_profesor
-        RIGHT JOIN departamento d ON pro.id_departamento = d.id
-        WHERE per.tipo = 'profesor'
-        ORDER BY d.nombre, per.apellido1, per.apellido2, per.nombre;
-        */
-/*2SELECT per.apellido1, per.apellido2, per.nombre FROM persona per
+/*1*/SELECT d.nombre, per.apellido1, per.apellido2, per.nombre FROM persona per
 		LEFT JOIN profesor pro ON per.id = pro.id_profesor
         LEFT JOIN departamento d ON pro.id_departamento = d.id
-        WHERE d.nombre IS NULL AND per.tipo != 'alumno';
-        */
+        WHERE per.tipo = 'profesor'
+        ORDER BY d.nombre, per.apellido1, per.apellido2, per.nombre;
+        -- Hi ha 12 professors a la Base de Dades, i els 12 tenen un departament associat.
+        -- Tot i així l'enunciat demana també els professors que NO tenen un departament associat.
+/*2*/SELECT per.apellido1, per.apellido2, per.nombre FROM persona per
+		LEFT JOIN profesor pro ON per.id = pro.id_profesor
+        LEFT JOIN departamento d ON pro.id_departamento = d.id
+        WHERE d.nombre IS NULL AND per.tipo = 'profesor';
+        -- Igual que al query anterior, no hi ha cap professor sense departament associat, per tant la llista està buida.
 /*3*/SELECT d.nombre FROM departamento d
 		LEFT JOIN profesor pro ON pro.id_departamento = d.id
 		LEFT JOIN persona per ON per.id = pro.id_profesor
@@ -45,9 +46,13 @@
         LEFT JOIN asignatura a USING (id_profesor)
         WHERE a.id_profesor IS NULL AND per.tipo = 'profesor';
 /*5*/SELECT a.nombre FROM asignatura a
-		
-        
-/*6*/
+		WHERE a.id_profesor IS NULL;
+        -- Entenc que cal utilitzar un left/right join, pero així s'obté directament no?
+        -- No sé com aplicar un outer join sense complicar-me la vida.
+/*6*/SELECT DISTINCT d.nombre FROM departamento d
+		LEFT JOIN profesor pro ON pro.id_departamento = d.id
+        LEFT JOIN asignatura a USING (id_profesor)
+		WHERE a.id_profesor IS NULL;
 -- CONSULTES RESUM
 /*1*/
 /*2*/
