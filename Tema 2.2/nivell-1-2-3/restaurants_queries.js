@@ -5,7 +5,7 @@ db.restaurants.find({}, {restaurant_id:1, name:1, borough:1, cuisine:1});
 //3
 db.restaurants.find({}, {restaurant_id:1, name:1, borough:1, cuisine:1, _id:0})
 //4
-
+db.restaurants.find( {}, {address: {zipcode: 1 },restaurant_id:1, name:1, borough:1, _id:0});
 //5
 
 //6
