@@ -13,7 +13,7 @@ db.restaurants.find({ borough:"Bronx"}).limit(5);
 //7
 db.restaurants.find({ borough:"Bronx"}).skip(5).limit(5);
 //8
-
+db.restaurants.find( {"grades.score": {$gt: 90}})
 //9
 
 //10
