@@ -42,7 +42,7 @@ db.restaurants.find({"grades.score": {$lt: 10}}, {restaurant_id:1, name:1, borou
 db.restaurants.find({ $or: [{ cuisine: "Seafood" }, { $and: [{ name: /^Wil/ }, { cuisine: {$in:["Chinese", "American "] }}]}]},
 {restaurant_id:1, name:1,borough:1, cuisine:1})
 //22
-
+db.restaurants.find({ "grades.grade": {$eq: "A"}},{"grades.score": 11}, {"grades.date":  {$gte: ISODate("2014-08-11T00:00:00Z")}},{restaurant_id:1, name:1, grades:1})
 //23
 
 //24
