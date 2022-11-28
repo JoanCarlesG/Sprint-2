@@ -29,9 +29,9 @@ db.restaurants.find({name: /^Wil/}, {restaurant_id:1, name:1, borough:1, cuisine
 //15
 db.restaurants.find({name: /ces$/}, {restaurant_id:1, name:1, borough:1, cuisine:1})
 //16
-
+db.restaurants.find({name: /.*Reg.*/}, {restaurant_id:1, name:1, borough:1, cuisine:1})
 //17
-
+db.restaurants.find({ borough: "Bronx", cuisine: { $in: ["American ", "Chinese"]}})
 //18
 
 //19
