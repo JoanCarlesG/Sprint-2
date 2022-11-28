@@ -48,9 +48,9 @@ db.restaurants.find({ "grades.1.grade": "A", "grades.1.score": 9, "grades.1.date
 //24
 db.restaurants.find({"address.coord.1": {$gt: 42, $lt: 52}},{restaurant_id:1, name:1, address:1, coord: 1})
 //25
-
+db.restaurants.find().sort({name: 1})
 //26
-
+db.restaurants.find().sort({name: -1})
 //27
 
 //28
