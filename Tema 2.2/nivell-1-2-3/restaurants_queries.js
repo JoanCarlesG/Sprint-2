@@ -56,7 +56,7 @@ db.restaurants.find().sort({cuisine: 1, borough: -1})
 //28
 db.restaurants.find({"address.street": {$exists: true}})
 //29
-
+db.restaurants.find({"address.coord": {$type: 1}})
 //30
 
 //31
