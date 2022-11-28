@@ -39,7 +39,8 @@ db.restaurants.find({borough: { $nin: ["Staten Island", "Queens", "Bronx", "Broo
 //20
 db.restaurants.find({"grades.score": {$lt: 10}}, {restaurant_id:1, name:1, borough:1, cuisine:1})
 //21
-
+db.restaurants.find({ $or: [{ cuisine: "Seafood" }, { $and: [{ name: /^Wil/ }, { cuisine: {$in:["Chinese", "American "] }}]}]},
+{restaurant_id:1, name:1,borough:1, cuisine:1})
 //22
 
 //23
