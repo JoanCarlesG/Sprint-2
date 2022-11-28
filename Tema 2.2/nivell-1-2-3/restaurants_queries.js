@@ -44,9 +44,9 @@ db.restaurants.find({ $or: [{ cuisine: "Seafood" }, { $and: [{ name: /^Wil/ }, {
 //22
 db.restaurants.find({ "grades.grade": {$eq: "A"}},{"grades.score": 11}, {"grades.date":  {$gte: ISODate("2014-08-11T00:00:00Z")}},{restaurant_id:1, name:1, grades:1})
 //23
-
+db.restaurants.find({ "grades.1.grade": "A", "grades.1.score": 9, "grades.1.date": {$gte: ISODate("2014-08-11T00:00:00Z")}},{restaurant_id:1, name:1, grades:1})
 //24
-
+db.restaurants.find({"address.coord.1": {$gt: 42, $lt: 52}},{restaurant_id:1, name:1, address:1, coord: 1})
 //25
 
 //26
