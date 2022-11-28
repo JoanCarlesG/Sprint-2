@@ -27,7 +27,7 @@ db.restaurants.find({cuisine: {$ne: "American "}, "grades.grade": {$eq: "A"}, bo
 //14
 db.restaurants.find({name: /^Wil/}, {restaurant_id:1, name:1, borough:1, cuisine:1})
 //15
-
+db.restaurants.find({name: /ces$/}, {restaurant_id:1, name:1, borough:1, cuisine:1})
 //16
 
 //17
