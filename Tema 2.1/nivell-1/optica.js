@@ -4,9 +4,7 @@ db.createCollection("suppliers")
 db.createCollection("customers")
 db.createCollection("employees")
 
-// Document Optica amb tots els subdocuments a dintre?
-
-db.suppliers.insert(
+db.suppliers.insertOne(
     {
         id: 1,
         name: "Glasses-Supplier",
@@ -21,7 +19,7 @@ db.suppliers.insert(
                 door: "A",
                 city: "Fake-Town",
                 zipcode: 08022,
-                country: "Fak-Country"
+                country: "Fake-Country"
             }
         ],
         glasses: [
@@ -53,7 +51,7 @@ db.suppliers.insert(
     }
 )
 
-db.customers.insert(
+db.customers.insertOne(
     {
         id: 2,
         name: "Joe",
@@ -75,7 +73,7 @@ db.customers.insert(
         reccomendedBy: 1 //Id client que li ha recomanat l'establiment
     }
 )
-db.employees.insert(
+db.employees.insertOne(
     {
         id: 1,
         name: "John",
