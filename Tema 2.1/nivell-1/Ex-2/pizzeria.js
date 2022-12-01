@@ -5,15 +5,14 @@ db.createCollection("pizzeries")
 //Cada client fa comandes incloent quantitat i tipus de producte.
 db.pizzeries.insertOne(
     {
-        address: [
+        address: 
             {
                 street: "Fake-Street",
                 num: 1,
                 city: "Fake-Town",
                 zipcode: 08022,
                 province: "Fake-Province"
-            }
-        ],
+            },
         employees: [
             {
                 id: 1,
