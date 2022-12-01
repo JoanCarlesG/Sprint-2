@@ -5,59 +5,59 @@ db.createCollection("channel")
 
 db.user.insertOne(
     {
-        user_id: INT,
-        mail: STR,
-        password: STR,
-        username: STR,
-        birthdate: Date(),
-        sex: STR,
-        country: STR,
-        zipcode: INT,
+        user_id: 1,
+        mail: "thisisanemail@mail.com",
+        password: "qwerty1234",
+        username: "Content-Creator",
+        birthdate: new Date("12-05-1990"),
+        sex: "male",
+        country: "My-Country",
+        zipcode: 99999,
         subscribed_to: [
             {
-                channel_id: INT
+                channel_id: 2
             }
         ],
         liked_videos: [
             {
-                video_id: INT,
+                video_id: 1,
                 timestamp: new Date()
             }
         ],
         disliked_videos: [
             {
-                video_id: INT,
+                video_id: 2,
                 timestamp: new Date()
             }
         ],
         playlists: [
             {
-                playlist_id:INT,
-                name: STR,
+                playlist_id:1,
+                name: "A-Playlist",
                 created_at: new Date(),
-                state: STR,
+                state: "public",
                 videos: [
                     {
-                        video_id: INT
+                        video_id: 1
                     }
                 ]
             }
         ],
         comments: [
             {
-                comment_id:INT,
-                text: STR,
+                comment_id: 1,
+                text: "This is a very useful comment.",
                 timestamp: new Date(),
-                video_id: INT,
+                video_id: 1,
                 liked_by: [
                     {
-                        user_id: INT,
+                        user_id: 2,
                         timestamp: new Date()
                     }
                 ],
                 disliked_by: [
                     {
-                        user_id: INT,
+                        user_id: 3,
                         timestamp: new Date()
                     }
                 ]
@@ -67,40 +67,40 @@ db.user.insertOne(
 )
 db.channel.insertOne(
     {
-        channel_id: INT,
-        user_id: INT,
-        channel_name: STR,
-        desc: STR,
+        channel_id: 1,
+        user_id: 1,
+        channel_name: "My-Channel",
+        desc: "This is a channel to upload my useful videos.",
         created_at: new Date(),
         video: [
             {
-                video_id: INT,
-                title: STR,
-                desc: STR,
-                size: FLOAT,
-                file_name: STR,
-                length: INT,
+                video_id: 1,
+                title: "Sample-Video",
+                desc: "This is a video description",
+                size: 300.56,
+                file_name: "sample-video-1",
+                length: 13,
                 thumbnail: new File(),
-                times_played: INT,
-                sum_likes: INT,
-                sum_dislikes: INT,
+                times_played: 45,
+                sum_likes: 1,
+                sum_dislikes: 1,
                 created_at: new Date(),
                 likes: [
                     {
-                        user_id: INT,
+                        user_id: 2,
                         timestamp: Date()
                     }
                 ],
                 dislikes: [
                     {
-                        user_id: INT,
+                        user_id: 3,
                         timestamp: Date()
                     }
                 ],
                 tags: [
                     {
-                        tag_id: INT,
-                        name: STR
+                        tag_id: 1,
+                        name: "tutorial"
                     }
                 ]
             }
