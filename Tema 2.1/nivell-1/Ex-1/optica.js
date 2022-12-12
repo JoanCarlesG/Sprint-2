@@ -3,6 +3,7 @@ use optica
 db.createCollection("suppliers")
 db.createCollection("customers")
 db.createCollection("employees")
+db.createCollection("glasses")
 
 db.suppliers.insertOne(
     {
@@ -24,28 +25,7 @@ db.suppliers.insertOne(
         ],
         glasses: [
             {
-                id: 1,
-                brand: "Expensive-Glasses",
-                power: [
-                    {
-                        left: 0.5,
-                        right: 0.5
-                    }
-                ],
-                frame: [
-                    {
-                        type: "Metal",
-                        color: "Blue"
-                    }
-                ],
-                glassColor: [
-                    {
-                        left: "Colorless",
-                        right: "Colorless"
-                    }
-                ],
-                price: 129.99,
-                employee_id: [1, 2, 3]
+                id: 1
             }
         ]
     }
@@ -81,9 +61,35 @@ db.employees.insertOne(
         sold: [
             {
                 glasses_id: 1,
-                timestamp: new Date()
+                timestamp: new Date(),
+                customer_id: 2
             }
         ],
 
+    }
+)
+db.glasses.insertOne(
+    {
+        id: 1,
+        brand: "Expensive-Glasses",
+        power: [
+            {
+                left: 0.5,
+                right: 0.5
+            }
+        ],
+        frame: [
+            {
+                type: "Metal",
+                color: "Blue"
+            }
+        ],
+        glassColor: [
+            {
+                left: "Colorless",
+                right: "Colorless"
+            }
+        ],
+        price: 129.99
     }
 )
