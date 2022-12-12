@@ -5,43 +5,43 @@ db.createCollection("artist")
 
 db.user.insertOne(
     {
-        user_id: INT,
-        mail: STR,
-        password: STR,
-        name: STR,
-        birthdate: new Date(),
-        sex: STR,
-        country: STR,
-        zipcode: INT,
+        user_id: 1,
+        mail: "thisisanemail@gmail.com",
+        password: "qwerty1234",
+        name: "Spoty-User",
+        birthdate: new Date("12-05-1990"),
+        sex: "male",
+        country: "My-Country",
+        zipcode: 99999,
         artists_followed: [
             {
-                artist_id: INT
+                artist_id: 1
             }
         ],
         fav_albums:[
             {
-                album_id: INT
+                album_id: 1
             }
         ],
         fav_songs:[
             {
-                song_id: INT
+                song_id: 1
             }
         ],
         playlists:[
             {
-                playlist_id: INT,
-                name: STR,
-                sum_songs: INT,
+                playlist_id: 1,
+                name: "My-playlist",
+                sum_songs: 1,
                 created_at: new Date(),
                 status:{
-                    status: BOOL,
+                    status: true,
                     timestamp: new Date()
                 },
                 songs:[
                     {
-                        song_id: INT,
-                        user_id: INT,
+                        song_id: 1,
+                        added_by_user_id: 1,
                         timestamp: new Date()
                     }
                 ]
@@ -49,28 +49,28 @@ db.user.insertOne(
         ],
         type: {
             free: {
-                status: BOOL
+                status: false
             },
             premium:{
-                status: BOOL,
+                status: true,
                 subscription:{
-                    start_date: new Date(),
-                    renewal_date: new Date(),
-                    sum_payments: INT,
+                    start_date: new Date("12-05-2022"),
+                    renewal_date: new Date("12-12-2022"),
+                    sum_payments: 6,
                     payment_data:{
-                        timestamp: new Date(),
-                        order_id: INT,
-                        order_total: FLOAT
+                        timestamp: new Date("12-11-2022"),
+                        order_id: 99999999,
+                        order_total: 9.99
                     },
                     payment_method:{
                         paypal:{
-                            pp_username: STR
+                            pp_username: "Paypaler"
                         },
                         credit_card:{
-                            card_num: INT,
-                            expire_mont: INT,
-                            expire_year: INT,
-                            secure_code: INT
+                            card_num: 9999999999999999,
+                            expire_mont: 6,
+                            expire_year: 2026,
+                            secure_code: 999
                         }
                     }
                 }
@@ -81,26 +81,26 @@ db.user.insertOne(
 )
 db.artist.insertOne(
     {
-        artist_id: INT,
-        name: STR,
+        artist_id: 1,
+        name: "Volbeat",
         picture: File(),
         related_artists:[
             {
-                artist_id: INT
+                artist_id: 2
             }
         ],
         albums:[
             {
-                album_id: INT,
-                title: STR,
-                release_year: INT,
+                album_id: 1,
+                title: "Servant Of The Mind",
+                release_year: 2021,
                 cover: File(),
                 songs:[
                     {
-                        song_id: INT,
-                        title: STR,
-                        length: INT,
-                        times_played: INT
+                        song_id: 1,
+                        title: "Shotgun Blues",
+                        length: 267,
+                        times_played: 9999999
                     }
                 ]
             }
