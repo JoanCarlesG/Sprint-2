@@ -2,6 +2,7 @@ use youtube
 
 db.createCollection("user")
 db.createCollection("channel")
+db.createCollection("videos")
 
 db.user.insertOne(
     {
@@ -32,7 +33,7 @@ db.user.insertOne(
         ],
         playlists: [
             {
-                playlist_id:1,
+                playlist_id: 1,
                 name: "A-Playlist",
                 created_at: new Date(),
                 state: "public",
@@ -72,36 +73,44 @@ db.channel.insertOne(
         channel_name: "My-Channel",
         desc: "This is a channel to upload my useful videos.",
         created_at: new Date(),
-        video: [
+        videos: [
             {
                 video_id: 1,
-                title: "Sample-Video",
-                desc: "This is a video description",
-                size: 300.56,
-                file_name: "sample-video-1",
-                length: 13,
-                thumbnail: new File(),
-                times_played: 45,
-                created_at: new Date(),
-                likes: [
-                    {
-                        user_id: 2,
-                        timestamp: Date()
-                    }
-                ],
-                dislikes: [
-                    {
-                        user_id: 3,
-                        timestamp: Date()
-                    }
-                ],
-                tags: [
-                    {
-                        tag_id: 1,
-                        name: "tutorial"
-                    }
-                ]
             }
         ]
     }
+)
+
+db.videos.insertOne(
+
+    {
+        video_id: 1,
+        title: "Sample-Video",
+        desc: "This is a video description",
+        size: 300.56,
+        file_name: "sample-video-1",
+        length: 13,
+        thumbnail: new File(),
+        times_played: 45,
+        created_at: new Date(),
+        likes: [
+            {
+                user_id: 2,
+                timestamp: Date()
+            }
+        ],
+        dislikes: [
+            {
+                user_id: 3,
+                timestamp: Date()
+            }
+        ],
+        tags: [
+            {
+                tag_id: 1,
+                name: "tutorial"
+            }
+        ]
+    }
+
 )
