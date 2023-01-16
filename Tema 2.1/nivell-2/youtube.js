@@ -82,8 +82,6 @@ db.channel.insertOne(
                 length: 13,
                 thumbnail: new File(),
                 times_played: 45,
-                sum_likes: 1,
-                sum_dislikes: 1,
                 created_at: new Date(),
                 likes: [
                     {
