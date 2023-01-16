@@ -2,9 +2,11 @@ use pizzeria
 
 db.createCollection("pizzeries")
 db.createCollection("customers")
+db.createCollection("orders")
 
 db.pizzeries.insertOne(
     {
+        pizzeria_id: 1,
         address:
         {
             street: "Fake-Street",
@@ -105,11 +107,45 @@ db.pizzeries.insertOne(
     }
 )
 
-db.pizzeries.insertOne(
+db.orders.insertOne(
+    {
+        order_id: 1,
+        customer_id: 1,
+        pizzeria_id: 1,
+        employee_id: 1,
+        order_date: new Date(),
+        type: "Delivery",
+        sum_price: 0.0,
+        delivery_date: new Date(),
+        products: {
+
+            burguers: [
+                {
+                    id: 1,
+                    quantity: 2
+                }
+            ],
+            drinks: [
+                {
+                    id: 1,
+                    quantity: 2
+                }
+            ],
+            pizzas: [
+                {
+                    id: 1,
+                    quantity: 1
+                }
+            ]
+        }
+    }
+)
+
+db.customers.insertOne(
     {
         customers: [
             {
-                id: 1,
+                customer_id: 1,
                 name: "Juan",
                 lastName: "Herrero",
                 phone: 888888888,
@@ -124,34 +160,6 @@ db.pizzeries.insertOne(
                         province: "Fake-Province"
                     }
                 ],
-                orders: [
-                    {
-                        id: 1,
-                        order_date: new Date(),
-                        type: "Delivery",
-                        sum_price: 0.0,
-                        employee_id: 1,
-                        delivery_date: new Date(),
-                        burguers: [
-                            {
-                                id: 1,
-                                quantity: 2
-                            }
-                        ],
-                        drinks: [
-                            {
-                                id: 1,
-                                quantity: 2
-                            }
-                        ],
-                        pizzas: [
-                            {
-                                id: 1,
-                                quantity: 1
-                            }
-                        ]
-                    }
-                ]
 
             }
         ]
